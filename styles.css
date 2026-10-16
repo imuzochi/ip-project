@@ -152,18 +152,29 @@ h1 {
 
 .map {
   position: relative;
-  min-height: max(430px, calc(100vh - 270px));
+  height: max(430px, calc(100vh - 270px));
   overflow: hidden;
   background-color: #e5e3df;
 }
 
-.map-marker {
-  position: absolute;
-  top: 50%;
+.status-message:empty {
+  display: none;
+}
+
+.status-message {
+  position: fixed;
+  z-index: 1000;
+  bottom: 16px;
   left: 50%;
-  width: 46px;
-  height: 56px;
-  transform: translate(-50%, -50%);
+  max-width: calc(100% - 32px);
+  margin: 0;
+  padding: 12px 18px;
+  transform: translateX(-50%);
+  border-radius: 8px;
+  background: hsl(0, 0%, 17%);
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
 }
 
 .visually-hidden {
@@ -235,10 +246,6 @@ h1 {
   }
 
   .map {
-    min-height: max(480px, calc(100vh - 300px));
-  }
-
-  .map-marker {
-    top: 60%;
+    height: max(480px, calc(100vh - 300px));
   }
 }

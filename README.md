@@ -38,6 +38,16 @@ Exposing your API Key publicly can lead to other people using it to make request
 
 ---
 
+## Run the project locally
+
+The app uses a small Node.js server (Node.js 18 or newer) to keep the IPify API key out of browser code. Add your key to the `API_KEY` setting in `.env`, then run:
+
+```sh
+node server.js
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser. Do not publish your `.env` file or API key.
+
 Want some support on the challenge? [Join our community](https://www.frontendmentor.io/community) and ask questions in the **#help** channel.
 
 ## Where to find everything

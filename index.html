@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="./styles.css">
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  >
   <title>IP Address Tracker</title>
 </head>
 <body>
@@ -25,6 +31,7 @@
           <img src="./images/icon-arrow.svg" alt="">
         </button>
       </form>
+      <p class="status-message" id="status-message" role="status" aria-live="polite"></p>
 
       <section class="ip-details" aria-label="IP address information">
         <dl>
@@ -49,8 +56,13 @@
     </section>
 
     <section class="map" id="map" aria-label="Map showing the IP address location">
-      <img class="map-marker" src="./images/icon-location.svg" alt="Map pin">
     </section>
   </main>
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+  <script src="./ip.js"></script>
 </body>
 </html>
