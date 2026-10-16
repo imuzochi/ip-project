@@ -19,25 +19,10 @@ Try a search with an IP address such as `8.8.8.8` or a domain such as `example.c
 - An IPify API key
 - Internet access for the IPify API, Leaflet CDN, and OpenStreetMap tiles
 
-## Run locally
+## Deployment
 
-1. Add your IPify key to the existing `.env` file:
-
-   ```text
-   API_KEY=your_ipify_api_key
-   ```
-
-2. In a terminal, change to this project folder and start the server:
-
-   ```sh
-   node server.js
-   ```
-
-3. Open [http://localhost:3000](http://localhost:3000).
-
-To stop the server, press **Control + C** in the terminal where it is running.
-
-The app needs to be opened through the local server, not by opening `index.html` directly as a file. The `.env` file is ignored by Git; do not commit or share your API key.
+My Netlify deployment link is:
+https://fluffy-praline-c89ca6.netlify.app/
 
 ## Built with
 
