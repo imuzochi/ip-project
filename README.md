@@ -11,6 +11,8 @@ A responsive IP address and domain lookup app. Search for an IP address or domai
 - Includes responsive layouts, keyboard-accessible search, and visible loading/error messages.
 - Keeps the IPify API key on the local server instead of exposing it in browser JavaScript.
 
+Try a search with an IP address such as `8.8.8.8` or a domain such as `example.com`.
+
 ## Requirements
 
 - Node.js 18 or newer
