@@ -100,6 +100,7 @@ h1 {
 
 .ip-details {
   position: absolute;
+  z-index: 1;
   top: 192px;
   left: 50%;
   width: min(calc(100% - 48px), 1110px);
@@ -152,6 +153,7 @@ h1 {
 
 .map {
   position: relative;
+  z-index: 0;
   height: max(430px, calc(100vh - 270px));
   overflow: hidden;
   background-color: #e5e3df;
