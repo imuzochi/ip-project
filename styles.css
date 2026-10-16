@@ -1,1 +1,244 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap");
 
+:root {
+  font-family: "Rubik", Arial, sans-serif;
+  color: hsl(0, 0%, 17%);
+  background-color: #f5f5f5;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+main {
+  min-height: 100vh;
+}
+
+.tracker {
+  position: relative;
+  z-index: 1;
+  height: 270px;
+  padding: 26px 24px 0;
+  background-color: #4d5fd3;
+  background-image: url("./images/pattern-bg-desktop.png");
+  background-position: center;
+  background-size: cover;
+  text-align: center;
+}
+
+h1 {
+  margin: 0 0 28px;
+  color: #fff;
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.search-form {
+  display: flex;
+  width: min(100%, 555px);
+  height: 58px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 15px;
+  background: #fff;
+}
+
+.search-form input {
+  min-width: 0;
+  flex: 1;
+  padding: 0 24px;
+  border: 0;
+  outline: 0;
+  color: hsl(0, 0%, 17%);
+  font: inherit;
+  font-size: 18px;
+}
+
+.search-form input::placeholder {
+  color: hsl(0, 0%, 59%);
+  opacity: 1;
+}
+
+.search-form:focus-within {
+  outline: 3px solid rgb(255 255 255 / 65%);
+  outline-offset: 3px;
+}
+
+.search-form button {
+  display: grid;
+  width: 56px;
+  flex: 0 0 56px;
+  place-items: center;
+  border: 0;
+  background: #000;
+  cursor: pointer;
+  transition: background-color 150ms ease;
+}
+
+.search-form button:hover {
+  background-color: hsl(0, 0%, 23%);
+}
+
+.search-form button:focus-visible {
+  outline: 3px solid hsl(0, 0%, 59%);
+  outline-offset: -4px;
+}
+
+.search-form button img {
+  width: 11px;
+  height: 14px;
+}
+
+.ip-details {
+  position: absolute;
+  top: 192px;
+  left: 50%;
+  width: min(calc(100% - 48px), 1110px);
+  min-height: 154px;
+  padding: 36px 32px;
+  transform: translateX(-50%);
+  border-radius: 15px;
+  background: #fff;
+  text-align: left;
+}
+
+.ip-details dl {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0;
+}
+
+.detail {
+  min-width: 0;
+  padding: 0 30px;
+  border-right: 1px solid hsl(0, 0%, 87%);
+}
+
+.detail:first-child {
+  padding-left: 0;
+}
+
+.detail:last-child {
+  padding-right: 0;
+  border-right: 0;
+}
+
+.detail dt {
+  margin-bottom: 12px;
+  color: hsl(0, 0%, 59%);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.detail dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.map {
+  position: relative;
+  min-height: max(430px, calc(100vh - 270px));
+  overflow: hidden;
+  background-color: #e5e3df;
+}
+
+.map-marker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 46px;
+  height: 56px;
+  transform: translate(-50%, -50%);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+@media (max-width: 700px) {
+  .tracker {
+    height: 300px;
+    padding: 26px 24px 0;
+    background-image: url("./images/pattern-bg-mobile.png");
+  }
+
+  h1 {
+    margin-bottom: 24px;
+    font-size: 26px;
+  }
+
+  .search-form {
+    height: 58px;
+  }
+
+  .search-form input {
+    padding: 0 24px;
+    font-size: 16px;
+  }
+
+  .search-form button {
+    width: 58px;
+    flex-basis: 58px;
+  }
+
+  .ip-details {
+    top: 167px;
+    width: calc(100% - 48px);
+    min-height: 0;
+    padding: 26px 20px;
+    text-align: center;
+  }
+
+  .ip-details dl {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .detail,
+  .detail:first-child,
+  .detail:last-child {
+    padding: 0;
+    border: 0;
+  }
+
+  .detail dt {
+    margin-bottom: 7px;
+    font-size: 10px;
+    letter-spacing: 1.4px;
+  }
+
+  .detail dd {
+    font-size: 20px;
+    line-height: 1.15;
+  }
+
+  .map {
+    min-height: max(480px, calc(100vh - 300px));
+  }
+
+  .map-marker {
+    top: 60%;
+  }
+}
