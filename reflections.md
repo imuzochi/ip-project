@@ -1,0 +1,1 @@
+Building the IP Address Tracker helped me see how a project can come together one step at a time. I started with the HTML structure, then added the styles to match the desktop and mobile designs. After that, I worked on the JavaScript and map. 
