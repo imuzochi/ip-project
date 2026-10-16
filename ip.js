@@ -27,6 +27,7 @@ let locationMarker;
 async function findLocation(searchValue = "") {
   statusMessage.textContent = "Searching for location...";
   searchButton.disabled = true;
+  searchForm.setAttribute("aria-busy", "true");
 
   try {
     const search = searchValue
@@ -40,6 +41,15 @@ async function findLocation(searchValue = "") {
     }
 
     const place = data.location;
+    if (
+      !data.ip ||
+      !place ||
+      !Number.isFinite(Number(place.lat)) ||
+      !Number.isFinite(Number(place.lng))
+    ) {
+      throw new Error("The location service returned incomplete information.");
+    }
+
     const cityAndRegion = [place.city, place.region]
       .filter(Boolean)
       .join(", ");
@@ -63,9 +73,13 @@ async function findLocation(searchValue = "") {
 
     statusMessage.textContent = "";
   } catch (error) {
-    statusMessage.textContent = error.message;
+    statusMessage.textContent =
+      error instanceof Error
+        ? error.message
+        : "Something went wrong. Please try again.";
   } finally {
     searchButton.disabled = false;
+    searchForm.removeAttribute("aria-busy");
   }
 }
 
@@ -77,6 +91,7 @@ searchForm.addEventListener("submit", (event) => {
     findLocation(searchValue);
   } else {
     statusMessage.textContent = "Enter an IP address or domain to search.";
+    searchInput.focus();
   }
 });
 

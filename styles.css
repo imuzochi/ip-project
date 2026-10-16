@@ -93,6 +93,11 @@ h1 {
   outline-offset: -4px;
 }
 
+.search-form button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
 .search-form button img {
   width: 11px;
   height: 14px;
@@ -112,10 +117,9 @@ h1 {
   text-align: left;
 }
 
-.ip-details dl {
+.details-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  margin: 0;
 }
 
 .detail {
@@ -133,8 +137,8 @@ h1 {
   border-right: 0;
 }
 
-.detail dt {
-  margin-bottom: 12px;
+.detail-label {
+  margin: 0 0 12px;
   color: hsl(0, 0%, 59%);
   font-size: 12px;
   font-weight: 700;
@@ -143,7 +147,7 @@ h1 {
   text-transform: uppercase;
 }
 
-.detail dd {
+.detail-value {
   margin: 0;
   overflow-wrap: anywhere;
   font-size: 24px;
@@ -155,8 +159,14 @@ h1 {
   position: relative;
   z-index: 0;
   height: max(430px, calc(100vh - 270px));
+  min-height: 430px;
   overflow: hidden;
   background-color: #e5e3df;
+}
+
+#map .leaflet-top.leaflet-left {
+  top: auto;
+  bottom: 16px;
 }
 
 .status-message:empty {
@@ -224,7 +234,7 @@ h1 {
     text-align: center;
   }
 
-  .ip-details dl {
+  .details-grid {
     grid-template-columns: 1fr;
     gap: 20px;
   }
@@ -236,18 +246,30 @@ h1 {
     border: 0;
   }
 
-  .detail dt {
+  .detail-label {
     margin-bottom: 7px;
     font-size: 10px;
     letter-spacing: 1.4px;
   }
 
-  .detail dd {
+  .detail-value {
     font-size: 20px;
     line-height: 1.15;
   }
 
   .map {
     height: max(480px, calc(100vh - 300px));
+    min-height: 480px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }

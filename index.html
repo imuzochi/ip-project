@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="Look up an IP address or domain to see its location, timezone, ISP, and map."
+  >
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="./styles.css">
   <link
@@ -23,9 +27,10 @@
         <input
           id="ip-address"
           name="ip-address"
-          type="text"
+          type="search"
           placeholder="Search for any IP address or domain"
           autocomplete="off"
+          aria-describedby="status-message"
         >
         <button type="submit" aria-label="Search">
           <img src="./images/icon-arrow.svg" alt="">
@@ -33,25 +38,30 @@
       </form>
       <p class="status-message" id="status-message" role="status" aria-live="polite"></p>
 
-      <section class="ip-details" aria-label="IP address information">
-        <dl>
+      <section
+        class="ip-details"
+        aria-label="IP address information"
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        <div class="details-grid">
           <div class="detail">
-            <dt>IP Address</dt>
-            <dd id="ip-result">192.212.174.101</dd>
+            <h2 class="detail-label">IP Address</h2>
+            <p class="detail-value" id="ip-result">192.212.174.101</p>
           </div>
           <div class="detail">
-            <dt>Location</dt>
-            <dd id="location-result">Brooklyn, NY 10001</dd>
+            <h2 class="detail-label">Location</h2>
+            <p class="detail-value" id="location-result">Brooklyn, NY 10001</p>
           </div>
           <div class="detail">
-            <dt>Timezone</dt>
-            <dd id="timezone-result">UTC -05:00</dd>
+            <h2 class="detail-label">Timezone</h2>
+            <p class="detail-value" id="timezone-result">UTC -05:00</p>
           </div>
           <div class="detail">
-            <dt>ISP</dt>
-            <dd id="isp-result">SpaceX Starlink</dd>
+            <h2 class="detail-label">ISP</h2>
+            <p class="detail-value" id="isp-result">SpaceX Starlink</p>
           </div>
-        </dl>
+        </div>
       </section>
     </section>
 

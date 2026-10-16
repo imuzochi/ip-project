@@ -72,14 +72,26 @@ async function handleLocationRequest(requestUrl, response) {
 
   try {
     const apiResponse = await fetch(
-      `https://geo.ipify.org/api/v2/country,city?${parameters.toString()}`
+      `https://geo.ipify.org/api/v2/country,city?${parameters.toString()}`,
+      { signal: AbortSignal.timeout(15000) }
     );
     const data = await apiResponse.json();
+
+    if (!apiResponse.ok) {
+      sendJson(response, apiResponse.status, {
+        error: data.messages || "IPify could not find that IP address or domain.",
+      });
+      return;
+    }
+
     sendJson(response, apiResponse.status, data);
   } catch (error) {
     console.error("The IPify request failed:", error);
     sendJson(response, 502, {
-      error: "Could not connect to IPify. Please try again.",
+      error:
+        error.name === "TimeoutError"
+          ? "The IPify request timed out. Please try again."
+          : "Could not connect to IPify. Please try again.",
     });
   }
 }
